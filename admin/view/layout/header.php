@@ -291,7 +291,7 @@
                     <li class="sub-menu">
                         <a href="javascript:;" class="">
                             <i class="icon-book"></i>
-                            <span>عناصر صفحه</span>
+                            <span>مدیریت منو ها</span>
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub">

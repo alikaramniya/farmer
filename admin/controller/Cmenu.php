@@ -11,6 +11,12 @@
 				exit;
 			}
 			break;
+		case 'list':
+			
+			break;
+		case 'edit':
+
+			break;
 	}
 
 	require_once "view/$controller/V$action.php";
