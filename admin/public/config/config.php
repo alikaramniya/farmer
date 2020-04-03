@@ -62,7 +62,7 @@ abstract class Config
             foreach ($data as $key => $value) {
                 $type = gettype($value);
                 switch ($type) {
-                    case 'strinng':
+                    case 'string':
                         $sql->bindParam(":$key", $data[$key]);
                         break;
                     case 'integer':
@@ -73,7 +73,7 @@ abstract class Config
                         break;
                 }
             }
-            return $sql;
+            $sql->execute();
         }
     }
     

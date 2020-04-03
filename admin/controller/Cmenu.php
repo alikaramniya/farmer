@@ -5,18 +5,20 @@
 	$menu = new Menu();
 	switch ($action) {
 		case 'add':
-			if ($_POST) {
+      		if ($_POST) {
 				$data = $_POST['frm'];
-				var_dump($data);
-				exit;
+				$menu->addMenu($data);
 			}
-			break;
+			$listChid = $menu->listChid(['1', '0']);
+			$total = count($listChid); 
+    		break;
 		case 'list':
-			
-			break;
+			$listMenu = $menu->listMenu();
+			$total = count($listMenu);
+    		break;
 		case 'edit':
 
-			break;
+    		break;
 	}
 
 	require_once "view/$controller/V$action.php";
