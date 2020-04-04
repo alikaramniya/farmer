@@ -31,7 +31,9 @@
 			break;
 		case 'edit':
 			$id = $_GET['id'];
-
+			$edit = $menu->showEdit($id);
+			$listChid = $menu->listChid(['1', '0']);
+			$total = count($listChid); 
     		break;
 	}
 

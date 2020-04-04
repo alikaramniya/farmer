@@ -38,4 +38,11 @@ class Menu extends Uploader
 		$this->setTbl(self::tbl);
 		$this->updateData($data, $id);
 	}
+
+	public function showEdit($id)
+	{
+		$this->setTbl(self::tbl);
+		$row = $this->showData('id', $id);
+		return $row;
+	}
 }
