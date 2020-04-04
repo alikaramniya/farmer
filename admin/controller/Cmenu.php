@@ -15,8 +15,22 @@
 		case 'list':
 			$listMenu = $menu->listMenu();
 			$total = count($listMenu);
-    		break;
+			if (isset($_GET['active'])) {
+				$id = $_GET['id'];
+				$data['status'] = '1';
+				if ($_GET['active'] == 'yes')
+					$data['status'] = '0';
+				$menu->updateMenu($data, $id);
+				header("Location: index.php?c=menu&a=list");				
+			}
+			break;
+		case 'delete':
+			$id = $_GET['id'];
+			$menu->deleteMenu($id);
+			header("Location: index.php?c=menu&a=list");
+			break;
 		case 'edit':
+			$id = $_GET['id'];
 
     		break;
 	}

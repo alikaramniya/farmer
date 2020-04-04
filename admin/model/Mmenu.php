@@ -20,5 +20,22 @@ class Menu extends Uploader
 		return $row;
 	}
 
+	public function listMenu()
+	{
+		$this->setTbl(self::tbl);
+		$row = $this->selectData('*');
+		return $row;
+	}
 
+	public function deleteMenu($id)
+	{
+		$this->setTbl(self::tbl);
+		$this->deleteData($id);
+	}
+
+	public function updateMenu($data, $id)
+	{
+		$this->setTbl(self::tbl);
+		$this->updateData($data, $id);
+	}
 }
