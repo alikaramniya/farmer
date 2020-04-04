@@ -38,7 +38,7 @@ abstract class Config
             $fields = implode(',', $field);
             $sql = $this->pdo->prepare("select {$fields} from {$this->tbl}");
         } else {
-            $sql = $this->pdo->prepareg("select {$field} from {$this->tbl}");
+            $sql = $this->pdo->prepare("select {$field} from {$this->tbl}");
         }
         $sql->execute();
         $row = $sql->fetchAll(PDO::FETCH_OBJ);
@@ -95,9 +95,9 @@ abstract class Config
             }
             $str = implode(',', $arr);
             $sql = $this->pdo->prepare("update {$this->tbl} set {$str} where id=:id");
-            $sq->bindParam(":id", $id, PDO::PARAM_INT);
+            $sql->bindParam(":id", $id, PDO::PARAM_INT);
             foreach ($data as $key => $value) {
-                $type = gettext($value);
+                $type = gettype($value);
                 switch ($type) {
                     case 'string':
                         $sql->bindParam(":$key", $data[$key]);
@@ -105,8 +105,8 @@ abstract class Config
                     case 'integer':
                         $sql->bindParam(":$key", $data[$key], PDO::PARAM_INT);
                         break;
-                    case 'boolean':
-                        $sql->bindParam(":$key", $data[$key], PDO::PARAM_BOOL);
+                    default:
+                        $sql->bindParam(":$key", $data[$key], PDO::PARAM_INT);
                         break;
                 }
             }
