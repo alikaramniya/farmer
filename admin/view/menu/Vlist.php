@@ -25,7 +25,22 @@
                 <tr>
                     <td><?php echo $value->title; ?></td>
                     <td><?php echo $value->url; ?></td>
-                    <td><?php echo $value->chid; ?></td>
+                    <td>
+                        <?php
+                            $chId = $value->chid;
+                            switch (true) {
+                                case $chId == 0:
+                                    echo "ندارد";
+                                    break;
+                                case $parent = $menu->showEdit($chId):
+                                    echo $parent->title;
+                                    break;
+                                default:
+                                    echo "سرگروه حذف شده است";
+                                    break;
+                            }
+                        ?>
+                    </td>
                     <td>
                         <?php
                             $status = $value->status;
