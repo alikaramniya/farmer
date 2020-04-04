@@ -34,6 +34,11 @@
 			$edit = $menu->showEdit($id);
 			$listChid = $menu->listChid(['1', '0']);
 			$total = count($listChid); 
+			if ($_POST) {
+				$data = $_POST['frm'];
+				$menu->updateMenu($data, $id);
+				header("Location: index.php?c=menu&a=edit&id=$id");
+			}
     		break;
 	}
 

@@ -3,7 +3,7 @@
         ویرایش منوی <?php echo $edit->title; ?>
     </header>
     <div class="panel-body">
-        <form role="form" action="index.php?c=menu&a=add" method="post">
+        <form role="form" action="index.php?c=menu&a=edit&id=<?php echo $edit->id; ?>" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">عنوان</label>
                 <input type="text" class="form-control" value="<?php echo $edit->title; ?>" id="exampleInputEmail1" name="frm[title]" placeholder="عنوان">
